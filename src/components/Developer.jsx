@@ -4,9 +4,9 @@ Command: npx gltfjsx@6.5.0 developer.glb -T
 Files: developer.glb [981.62KB] > /Users/hsuwinlat/Desktop/jsm pj/threejscc-portfolio/public/models/developer-transformed.glb [395.08KB] (60%)
 */
 
-import React, { useEffect, useRef } from 'react';
-import { useGraph } from '@react-three/fiber';
 import { useAnimations, useFBX, useGLTF } from '@react-three/drei';
+import { useGraph } from '@react-three/fiber';
+import React, { useEffect, useRef } from 'react';
 import { SkeletonUtils } from 'three-stdlib';
 
 const Developer = ({ animationName = 'idle', ...props }) => {
@@ -21,54 +21,49 @@ const Developer = ({ animationName = 'idle', ...props }) => {
   const { animations: clappingAnimation } = useFBX('/models/animations/clapping.fbx');
   const { animations: victoryAnimation } = useFBX('/models/animations/victory.fbx');
 
-  idleAnimation[0].name = 'idle';
-  saluteAnimation[0].name = 'salute';
-  clappingAnimation[0].name = 'clapping';
-  victoryAnimation[0].name = 'victory';
+  // Safely assign names with null checks
+  if (idleAnimation?.[0]) idleAnimation[0].name = 'idle';
+  if (saluteAnimation?.[0]) saluteAnimation[0].name = 'salute';
+  if (clappingAnimation?.[0]) clappingAnimation[0].name = 'clapping';
+  if (victoryAnimation?.[0]) victoryAnimation[0].name = 'victory';
 
   const { actions } = useAnimations(
-    [idleAnimation[0], saluteAnimation[0], clappingAnimation[0], victoryAnimation[0]],
+    [idleAnimation?.[0], saluteAnimation?.[0], clappingAnimation?.[0], victoryAnimation?.[0]].filter(Boolean),
     group,
   );
 
   useEffect(() => {
-    actions[animationName].reset().fadeIn(0.5).play();
-    return () => actions[animationName].fadeOut(0.5);
-  }, [animationName]);
+    // Add safety checks to prevent setState during render
+    if (!actions || !group.current || !actions[animationName]) return;
+
+    // Use setTimeout to defer execution after render cycle
+    const timeoutId = setTimeout(() => {
+      const currentAction = actions[animationName];
+      
+      if (currentAction) {
+        // Stop all other animations first
+        Object.values(actions).forEach((action) => {
+          if (action && action !== currentAction && action.isRunning()) {
+            action.stop();
+          }
+        });
+
+        // Play the selected animation
+        currentAction.reset().fadeIn(0.5).play();
+      }
+    }, 0);
+
+    return () => {
+      clearTimeout(timeoutId);
+      if (actions[animationName]) {
+        actions[animationName].fadeOut(0.5);
+      }
+    };
+  }, [actions, animationName]);
 
   return (
-    <group ref={group} {...props} dispose={null}>
+    <group {...props} dispose={null}>
       <primitive object={nodes.Hips} />
-      <skinnedMesh
-        geometry={nodes.Wolf3D_Hair.geometry}
-        material={materials.Wolf3D_Hair}
-        skeleton={nodes.Wolf3D_Hair.skeleton}
-      />
-      <skinnedMesh
-        geometry={nodes.Wolf3D_Glasses.geometry}
-        material={materials.Wolf3D_Glasses}
-        skeleton={nodes.Wolf3D_Glasses.skeleton}
-      />
-      <skinnedMesh
-        geometry={nodes.Wolf3D_Body.geometry}
-        material={materials.Wolf3D_Body}
-        skeleton={nodes.Wolf3D_Body.skeleton}
-      />
-      <skinnedMesh
-        geometry={nodes.Wolf3D_Outfit_Bottom.geometry}
-        material={materials.Wolf3D_Outfit_Bottom}
-        skeleton={nodes.Wolf3D_Outfit_Bottom.skeleton}
-      />
-      <skinnedMesh
-        geometry={nodes.Wolf3D_Outfit_Footwear.geometry}
-        material={materials.Wolf3D_Outfit_Footwear}
-        skeleton={nodes.Wolf3D_Outfit_Footwear.skeleton}
-      />
-      <skinnedMesh
-        geometry={nodes.Wolf3D_Outfit_Top.geometry}
-        material={materials.Wolf3D_Outfit_Top}
-        skeleton={nodes.Wolf3D_Outfit_Top.skeleton}
-      />
       <skinnedMesh
         name="EyeLeft"
         geometry={nodes.EyeLeft.geometry}
@@ -101,8 +96,28 @@ const Developer = ({ animationName = 'idle', ...props }) => {
         morphTargetDictionary={nodes.Wolf3D_Teeth.morphTargetDictionary}
         morphTargetInfluences={nodes.Wolf3D_Teeth.morphTargetInfluences}
       />
+      <skinnedMesh
+        geometry={nodes.Wolf3D_Body.geometry}
+        material={materials.Wolf3D_Body}
+        skeleton={nodes.Wolf3D_Body.skeleton}
+      />
+      <skinnedMesh
+        geometry={nodes.Wolf3D_Outfit_Bottom.geometry}
+        material={materials.Wolf3D_Outfit_Bottom}
+        skeleton={nodes.Wolf3D_Outfit_Bottom.skeleton}
+      />
+      <skinnedMesh
+        geometry={nodes.Wolf3D_Outfit_Footwear.geometry}
+        material={materials.Wolf3D_Outfit_Footwear}
+        skeleton={nodes.Wolf3D_Outfit_Footwear.skeleton}
+      />
+      <skinnedMesh
+        geometry={nodes.Wolf3D_Outfit_Top.geometry}
+        material={materials.Wolf3D_Outfit_Top}
+        skeleton={nodes.Wolf3D_Outfit_Top.skeleton}
+      />
     </group>
-  );
+  )
 };
 
 useGLTF.preload('/models/animations/developer.glb');

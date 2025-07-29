@@ -14,54 +14,17 @@ export const navLinks = [
     name: 'Work',
     href: '#work',
   },
-  {
-    id: 4,
-    name: 'Contact',
-    href: '#contact',
-  },
+  
 ];
 
-export const clientReviews = [
-  {
-    id: 1,
-    name: 'Emily Johnson',
-    position: 'Marketing Director at GreenLeaf',
-    img: 'assets/review1.png',
-    review:
-      'Working with Adrian was a fantastic experience. He transformed our outdated website into a modern, user-friendly platform. His attention to detail and commitment to quality are unmatched. Highly recommend him for any web dev projects.',
-  },
-  {
-    id: 2,
-    name: 'Mark Rogers',
-    position: 'Founder of TechGear Shop',
-    img: 'assets/review2.png',
-    review:
-      'Adrian’s expertise in web development is truly impressive. He delivered a robust and scalable solution for our e-commerce site, and our online sales have significantly increased since the launch. He’s a true professional! Fantastic work.',
-  },
-  {
-    id: 3,
-    name: 'John Dohsas',
-    position: 'Project Manager at UrbanTech ',
-    img: 'assets/review3.png',
-    review:
-      'I can’t say enough good things about Adrian. He was able to take our complex project requirements and turn them into a seamless, functional website. His problem-solving abilities are outstanding.',
-  },
-  {
-    id: 4,
-    name: 'Ether Smith',
-    position: 'CEO of BrightStar Enterprises',
-    img: 'assets/review4.png',
-    review:
-      'Adrian was a pleasure to work with. He understood our requirements perfectly and delivered a website that exceeded our expectations. His skills in both frontend backend dev are top-notch.',
-  },
-];
+
 
 export const myProjects = [
   {
-    title: 'Podcastr - AI Podcast Platform',
-    desc: 'Podcastr is a revolutionary Software-as-a-Service platform that transforms the way podcasts are created. With advanced AI-powered features like text-to-multiple-voices functionality, it allows creators to generate diverse voiceovers from a single text input.',
+    title: 'Thermal Monitoring and Regulation of Southern Yellow-billed Hornbill Nest Boxes',
+    desc: 'ThermoNest" is an automated climate-control system designed to protect endangered hornbills by maintaining optimal nest temperatures.',
     subdesc:
-      'Built as a unique Software-as-a-Service app with Next.js 14, Tailwind CSS, TypeScript, Framer Motion and Convex, Podcastr is designed for optimal performance and scalability.',
+      ' My primary contribution involved designing the microcontroller and sensor subsystem, where I implemented an Extended Kalman Filter (EKF) algorithm to fuse data from multiple temperature sensors, achieving ±0.5°C estimation accuracy. The system not only stabilizes nest microclimates but also provides researchers with real-time environmental data through a cloud-connected dashboard',
     href: 'https://www.youtube.com/watch?v=zfAb95tJvZQ',
     texture: '/textures/project/project1.mp4',
     logo: '/assets/project-logo1.png',
@@ -74,8 +37,8 @@ export const myProjects = [
     tags: [
       {
         id: 1,
-        name: 'React.js',
-        path: '/assets/react.svg',
+        name: 'Raspberry Pi',
+        path: '/assets/pi.svg',
       },
       {
         id: 2,
@@ -85,20 +48,17 @@ export const myProjects = [
       {
         id: 3,
         name: 'TypeScript',
-        path: '/assets/typescript.png',
+        path: '/assets/algo.png',
       },
-      {
-        id: 4,
-        name: 'Framer Motion',
-        path: '/assets/framer.png',
-      },
+      
+      
     ],
   },
   {
-    title: 'LiveDoc - Real-Time Google Docs Clone',
-    desc: 'LiveDoc is a powerful collaborative app that elevates the capabilities of real-time document editing. As an enhanced version of Google Docs, It supports millions of collaborators simultaneously, ensuring that every change is captured instantly and accurately.',
+    title: 'Microphone Array-Based Sound Localization System',
+    desc: 'This project involved the collaborative design and testing of an acoustic triangulation system for 2D sound source localization using a four-microphone array synchronized via Raspberry Pi Zeros. Working as a team, we implemented signal processing algorithms (including GCC-PHAT for time-delay estimation) and developed triangulation methods to map sound origins, while addressing hardware/software integration challenges.',
     subdesc:
-      'With LiveDoc, users can experience the future of collaboration, where multiple contributors work together in real time without any lag, by using Next.js and Liveblocks newest features.',
+      'Our system achieved measurable accuracy in controlled conditions, though we identified limitations in quadrant detection and noise sensitivity that suggest future improvements through machine learning or advanced TDoA algorithms.',
     href: 'https://www.youtube.com/watch?v=y5vE8y_f_OM',
     texture: '/textures/project/project2.mp4',
     logo: '/assets/project-logo2.png',
@@ -111,8 +71,8 @@ export const myProjects = [
     tags: [
       {
         id: 1,
-        name: 'React.js',
-        path: '/assets/react.svg',
+        name: 'Raspberry Pi',
+        path: '/assets/pi.svg',
       },
       {
         id: 2,
@@ -132,10 +92,10 @@ export const myProjects = [
     ],
   },
   {
-    title: 'CarePulse - Health Management System',
-    desc: 'An innovative healthcare platform designed to streamline essential medical processes. It simplifies patient registration, appointment scheduling, and medical record management, providing a seamless experience for both healthcare providers and patients.',
+    title: 'Group Investment Project',
+    desc: 'This project provided hands-on experience in the financial sector by simulating real-world investing through EasyEquities.',
     subdesc:
-      'With a focus on efficiency, CarePulse integrantes complex forms and SMS notifications, by using Next.js, Appwrite, Twillio and Sentry that enhance operational workflows.',
+      ' Working in a team of four, we practiced and implemented various investment strategies, conducting thorough research on company performance, financial track records, and market trends. Each member contributed to analyzing data and compiling research reports to support informed investment decisions.',
     href: 'https://www.youtube.com/watch?v=lEflo_sc82g',
     texture: '/textures/project/project3.mp4',
     logo: '/assets/project-logo3.png',
@@ -171,10 +131,10 @@ export const myProjects = [
     ],
   },
   {
-    title: 'Horizon - Online Banking Platform',
-    desc: 'Horizon is a comprehensive online banking platform that offers users a centralized finance management dashboard. It allows users to connect multiple bank accounts, monitor real-time transactions, and seamlessly transfer money to other users.',
+    title: 'Environment Sensing Hat',
+    desc: 'This project focused on designing a Hardware Attached on Top (HAT) using an STM32F051C6T6 microcontroller to collect data from digital and analog sensors. ',
     subdesc:
-      'Built with Next.js 14 Appwrite, Dwolla and Plaid, Horizon ensures a smooth and secure banking experience, tailored to meet the needs of modern consumers.',
+      'My partner and I successfully integrated a digital light sensor and an analog temperature sensor, ensuring reliability for industrial use or extreme weather conditions. The temperature sensor continuously monitors environmental conditions to prevent HAT damage. My key responsibilities included microcontroller programming and sensor assembly.',
     href: 'https://www.youtube.com/watch?v=PuOVqP_cjkE',
     texture: '/textures/project/project4.mp4',
     logo: '/assets/project-logo4.png',
@@ -187,8 +147,8 @@ export const myProjects = [
     tags: [
       {
         id: 1,
-        name: 'React.js',
-        path: '/assets/react.svg',
+        name: 'Raspberry Pi',
+        path: '/assets/pi.svg',
       },
       {
         id: 2,
@@ -208,10 +168,10 @@ export const myProjects = [
     ],
   },
   {
-    title: 'Imaginify - AI Photo Manipulation App',
-    desc: 'Imaginify is a groundbreaking Software-as-a-Service application that empowers users to create stunning photo manipulations using AI technology. With features like AI-driven image editing, a payments system, and a credits-based model.',
+    title: 'Inductor Project',
+    desc: 'This project was conducted by a team of three, where we designed, modeled, and analyzed a silicon steel core inductor through numerical simulations, prototyping, and rigorous testing.',
     subdesc:
-      'Built with Next.js 14, Cloudinary AI, Clerk, and Stripe, Imaginify combines cutting-edge technology with a user-centric approach. It can be turned into a side income or even a full-fledged business.',
+      'A comprehensive report was produced, documenting the entire development process, including key findings and performance evaluations.',
     href: 'https://www.youtube.com/watch?v=Ahwoks_dawU',
     texture: '/textures/project/project5.mp4',
     logo: '/assets/project-logo5.png',
@@ -257,32 +217,125 @@ export const calculateSizes = (isSmall, isMobile, isTablet) => {
   };
 };
 
+
+
+
 export const workExperiences = [
   {
     id: 1,
-    name: 'Framer',
-    pos: 'Lead Web Developer',
-    duration: '2022 - Present',
-    title: "Framer serves as my go-to tool for creating interactive prototypes. I use it to bring designs to  life, allowing stakeholders to experience the user flow and interactions before development.",
-    icon: '/assets/framer.svg',
-    animation: 'victory',
+    name: 'AIP Voltage Current Sensing',
+    pos: 'Research Developer',
+    duration: 'Jun 2025 - Jul 2025',
+    title: "Collaborated with a team to develop a real-time current and voltage sensing system for power applications at UCT's Electrical Engineering department.",
+    icon: '/assets/research.svg',
+    animation: 'typing',
   },
   {
     id: 2,
-    name: 'Figma',
-    pos: 'Web Developer',
-    duration: '2020 - 2022',
-    title: "Figma is my collaborative design platform of choice. I utilize it to work seamlessly with team members and clients, facilitating real-time feedback and design iterations. Its cloud-based.",
-    icon: '/assets/figma.svg',
-    animation: 'clapping',
+    name: 'BMH',
+    pos: 'Engineering Intern',
+    duration: 'Dec 2024 - Jan 2025',
+    title: "Maintained and repaired industrial machinery and automation systems, gaining hands-on experience with industrial engineering applications.",
+    icon: '/assets/industry.svg',
+    animation: 'working',
   },
   {
     id: 3,
-    name: 'Notion',
-    pos: 'Junior Web Developer',
-    duration: '2019 - 2020',
-    title: "Notion helps me keep my projects organized. I use it for project management, task tracking, and as a central hub for documentation, ensuring that everything from design notes to.",
-    icon: '/assets/notion.svg',
-    animation: 'salute',
+    name: 'University of Cape Town',
+    pos: 'EEE1007 Tutor',
+    duration: 'Aug 2023 - Oct 2023',
+    title: "Facilitated tutorial sessions and assisted students with coursework understanding in electrical engineering.",
+    icon: '/assets/teaching.svg',
+    animation: 'teaching',
+  },
+  {
+    id: 4,
+    name: 'CPUT Techs',
+    pos: 'Trainee',
+    duration: 'Nov 2022 - Jan 2023',
+    title: "Completed training in automation, welding, fitting, and software development across multiple engineering disciplines.",
+    icon: '/assets/training.svg',
+    animation: 'learning',
+  },
+  {
+    id: 5,
+    name: 'Siyanda Engineering',
+    pos: 'Engineering Assistant',
+    duration: 'Dec 2021 - Jan 2022',
+    title: "Shadowed engineers in consultations and design projects, observing engineering practice in consulting environment.",
+    icon: '/assets/industry.svg',
+    animation: 'observing',
+  },
+  {
+    id: 6,
+    name: 'Forest Hill Residence',
+    pos: 'Block Chair - Treasurer',
+    duration: 'Mar 2025 - Present',
+    title: "Manage residence events and facilitate community building initiatives while promoting inclusivity and student welfare.",
+    icon: '/assets/leadership.svg',
+    animation: 'presenting',
+  },
+  {
+    id: 7,
+    name: 'UCT Residence Life',
+    pos: 'Transformation Council Chairperson',
+    duration: 'Oct 2023 - Sep 2024',
+    title: "Spearheaded strategic planning and implementation of transformation initiatives within university residence system.",
+    icon: '/assets/leadership.svg',
+    animation: 'speaking',
+  },
+  {
+    id: 8,
+    name: 'UCT IEEE Student Chapter',
+    pos: 'Executive Committee Member',
+    duration: 'Aug 2022 - Sep 2024',
+    title: "Oversaw marketing, public relations, and event planning activities, increasing student engagement by 43%.",
+    icon: '/assets/leadership.svg',
+    animation: 'planning',
+  },
+  {
+    id: 9,
+    name: 'Ubunye',
+    pos: 'Inkanyezi Logistics Co-Ordinator',
+    duration: 'Feb 2022 - Oct 2023',
+    title: "Coordinated logistics for mentorship program supporting underprivileged Grade 11 learners.",
+    icon: '/assets/leadership.svg',
+    animation: 'organizing',
+  },
+  {
+    id: 10,
+    name: 'Tutorials by Tijana',
+    pos: 'Private Tutor',
+    duration: 'Feb 2021 - Mar 2023',
+    title: "Delivered personalized online tutoring sessions for physics and mathematics.",
+    icon: '/assets/teaching.svg',
+    animation: 'explaining',
+  },
+  {
+    id: 11,
+    name: 'Edenvale Baptist Church',
+    pos: 'Youth Leader',
+    duration: 'Nov 2019 - Jan 2021',
+    title: "Engaged with youth members to foster community and development through organized programs.",
+    icon: '/assets/teaching.svg',
+    animation: 'encouraging',
+  },
+  {
+    id: 12,
+    name: 'Tribes Restaurant',
+    pos: 'Front Desk and Host',
+    duration: 'Nov 2023 - Jan 2024',
+    title: "Handled reservations and addressed customer service queries, developing professional communication skills.",
+    icon: '/assets/hospitality.svg',
+    animation: 'greeting',
+  },
+  {
+    id: 13,
+    name: 'Lethabong Stationers',
+    pos: 'Inventory Clerk',
+    duration: 'Jun 2021 - Jul 2021',
+    title: "Managed inventory and bookkeeping; resolved customer queries across multiple channels.",
+    icon: '/assets/inventory.svg',
+    animation: 'organizing',
   },
 ];
